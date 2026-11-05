@@ -17,7 +17,7 @@ export default function Schedule({ id }) {
                 <span aria-hidden="true" className="absolute top-[max(0.8rem,3.2cqw)] right-[calc(50%+max(1.3rem,5cqw))] left-[calc(-50%+max(1.3rem,5cqw))] h-px bg-gold/50" />
               )}
               <Icon className="size-[max(1.6rem,6.4cqw)] text-cocoa" />
-              <span className="mt-[2cqw] text-[max(0.72rem,2.2cqw)] leading-none tracking-[0.06em] lining-nums">{time}</span>
+              <span className="mt-[max(0.6rem,2.5cqw)] text-[max(0.72rem,2.2cqw)] leading-none tracking-[0.06em] lining-nums">{time}</span>
               <span className="mt-[1cqw] text-[max(0.56rem,1.75cqw)] font-medium tracking-[0.1em] uppercase">{title}</span>
             </li>
           )

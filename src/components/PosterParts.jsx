@@ -19,14 +19,14 @@ export function Part({ id, title, className = '', children }) {
         <span className="-mr-[0.32em]">{title}</span>
         <span aria-hidden="true" className="h-px w-[7cqw] bg-gold/60" />
       </h2>
-      <div className="mt-[4.5cqw]">{children}</div>
+      <div className="mt-[max(1.5rem,6cqw)]">{children}</div>
     </section>
   )
 }
 
 export function Divider() {
   return (
-    <div aria-hidden="true" className="flex items-center justify-center gap-[1.5cqw] pt-[4.5cqw] pb-[6.5cqw]">
+    <div aria-hidden="true" className="flex items-center justify-center gap-[1.5cqw] pt-[max(2.25rem,8cqw)] pb-[max(2.5rem,9cqw)]">
       <span className="h-px w-[11cqw] bg-gold/50" />
       <Ornament className="size-[max(0.7rem,2.2cqw)]" />
       <span className="h-px w-[11cqw] bg-gold/50" />
@@ -46,7 +46,7 @@ export function Split({ drawing, centred, children }) {
     <div className={`grid items-center gap-x-[5cqw] ${centred ? 'grid-cols-[0.8fr_1px_1.25fr]' : 'grid-cols-[0.9fr_1px_1.1fr]'}`}>
       <div className="flex justify-center">{drawing}</div>
       <span aria-hidden="true" className="h-full min-h-[14cqw] w-px bg-gold/50" />
-      <div className={`flex flex-col gap-[1.6cqw] ${centred ? 'items-center text-center' : 'items-start text-left'}`}>{children}</div>
+      <div className={`flex flex-col gap-[max(0.6rem,2.2cqw)] ${centred ? 'items-center text-center' : 'items-start text-left'}`}>{children}</div>
     </div>
   )
 }

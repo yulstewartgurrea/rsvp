@@ -14,7 +14,7 @@ function Unit({ value, label }) {
 export default function Countdown({ id }) {
   const { done, days, hours, minutes, seconds } = useCountdown(wedding.date)
   return (
-    <Part id={id} title="Countdown" className="pt-[1cqw]">
+    <Part id={id} title="Countdown" className="pt-[max(1.25rem,4cqw)]">
       {done ? (
         <p className="text-center font-signature text-[max(2rem,7cqw)]">Just married!</p>
       ) : (

@@ -15,7 +15,7 @@ export default function ThankYou() {
       <Part title="Thank You">
         <div className="flex flex-col items-center text-center">
           <p className="max-w-[60cqw] text-[max(1rem,3cqw)] text-balance italic">{wedding.thankYou}</p>
-          <HeartFlourish className="mt-[2.5cqw] h-auto w-[17cqw]" />
+          <HeartFlourish className="mt-[max(0.75rem,3cqw)] h-auto w-[17cqw]" />
         </div>
       </Part>
     </div>
