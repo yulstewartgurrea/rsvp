@@ -3,11 +3,16 @@
 import { useArtworkFrame } from '../hooks/useArtworkFrame'
 import { ARTWORK } from '../lib/envelope'
 
-// The envelope's size, shared with the invitation card it opens into: on a phone it fills the
-// screen, and on anything wider it is a portrait card the artwork's shape, sized to the screen's
-// height. Centre it in a screen-high box with sm:p-6 round it.
+// The envelope's size: on a phone it fills the screen, and on anything wider it is a portrait card
+// the artwork's shape, sized to the screen's height. Centre it in a screen-high box with sm:p-6 round it.
 export const ENVELOPE_BOX =
   'h-svh min-h-[32rem] w-full sm:aspect-[941/1672] sm:h-auto sm:min-h-0 sm:w-[clamp(18.75rem,49svh,30rem)]'
+
+// The invitation the envelope opens into, one long page: as wide as the envelope, and with its top
+// where the envelope's top was (centred as above, so half of what the screen has left over, at
+// least the padding), so the opening hands straight over to it.
+export const POSTER_COLUMN =
+  'w-full sm:w-[clamp(18.75rem,49svh,30rem)] sm:pt-[max(1.5rem,calc((100svh-clamp(18.75rem,49svh,30rem)*1.7768)/2))]'
 
 // On screens wider than a phone the envelope is a portrait card resting on the backdrop below.
 export const CARD = 'sm:rounded-lg sm:shadow-[0_1px_2px_rgb(74_63_55/0.12),0_14px_28px_-8px_rgb(74_63_55/0.22),0_44px_90px_-24px_rgb(74_63_55/0.3)]'

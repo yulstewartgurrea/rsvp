@@ -6,8 +6,10 @@ create table public.rsvps (
   name text not null check (char_length(name) between 1 and 120),
   email text not null check (char_length(email) <= 254),
   attending boolean not null,
-  guest_count smallint not null default 1 check (guest_count between 0 and 10),
-  events text[] not null default '{}',
+  -- Everyone coming: the person replying and the other guests they name.
+  guest_count smallint not null default 1 check (guest_count >= 0),
+  -- The names of the people coming with the person replying, as many as they like.
+  other_guests text[] not null default '{}',
   message text check (char_length(message) <= 2000)
 );
 

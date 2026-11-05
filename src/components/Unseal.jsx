@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router'
 import { useArtworkFrame } from '../hooks/useArtworkFrame'
 import { ARTWORK, FLAPS, polygon, SEAL, SEAL_CLIP } from '../lib/envelope'
 import { Artwork, Backdrop, CARD, PAPER_TEXTURE } from './Envelope'
-import InvitationCard from './InvitationCard'
+import Poster from './Poster'
 
 // Milliseconds after the code is accepted, as when a real envelope is opened: the flap carrying the
 // seal lifts first, the other side just after, and the top and bottom flaps follow while they are
-// still rising, uncovering the invitation card inside, whose wording then comes up. The card then
-// lifts out to just where it lies at the top of the main page, and the envelope fades away around it.
+// still rising, uncovering the invitation inside, whose wording then comes up. The invitation then
+// lifts out to just where its top lies on the main page, and the envelope fades away around it.
 const AT = {
   navigate: 450, // the form has faded away; the main page loads behind the envelope
   left: 600, // the left flap lifts, taking the seal with it
@@ -16,7 +16,7 @@ const AT = {
   top: 1350,
   bottom: 1500,
   text: 2700,
-  lift: 4200, // the card lifts out of the envelope
+  lift: 4200, // the invitation lifts out of the envelope
   fade: 5100, // and once it is in place, the envelope fades away onto the main page
   done: 5800,
 }
@@ -55,7 +55,7 @@ const INSIDE = Object.fromEntries(
   ]),
 )
 
-// How much smaller the card is inside the envelope than once it has lifted out.
+// How much smaller the invitation is inside the envelope than once it has lifted out.
 const IN_ENVELOPE = 'scale(0.9)'
 
 const STEPS = 30
@@ -146,16 +146,17 @@ function Flap({ part, register }) {
   )
 }
 
-// The invitation inside the envelope, a little smaller than it lies on the page. Its wording comes
-// up once the flaps are open.
+// The invitation inside the envelope, a little smaller than it lies on the page: its top, as much
+// of it as the envelope holds. Its wording comes up once the flaps are open.
 function Card({ register }) {
   return (
-    <InvitationCard
+    <div
       ref={register('card')}
+      className="absolute inset-0 overflow-hidden shadow-[0_10px_30px_-8px_rgb(74_63_55/0.35)] sm:rounded-lg"
       style={{ transform: IN_ENVELOPE }}
-      wordsRef={register('words')}
-      wordsStyle={{ opacity: 0 }}
-    />
+    >
+      <Poster preview wordsRef={register('words')} restRef={register('rest')} wordsHidden />
+    </div>
   )
 }
 
@@ -209,6 +210,7 @@ export default function Unseal({ rect, onDone }) {
       // The whole artwork covers the cut-out flaps until they move, so no seams show between them.
       play('whole', [{ opacity: 1 }, { opacity: 0 }], AT.left, 1),
       play('words', [{ opacity: 0 }, { opacity: 1 }], AT.text, 900, 'ease-out'),
+      play('rest', [{ opacity: 0 }, { opacity: 1 }], AT.text, 900, 'ease-out'),
       play('card', [{ transform: IN_ENVELOPE }, { transform: 'none' }], AT.lift, AT.fade - AT.lift, 'cubic-bezier(0.45, 0, 0.2, 1)'),
     )
     return () => animations.forEach((animation) => animation?.cancel())

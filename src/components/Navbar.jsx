@@ -4,11 +4,11 @@ import { supabase } from '../lib/supabase'
 import { CloseIcon, MenuIcon } from './Icons'
 
 const LINKS = [
-  { href: '#home', label: 'Home' },
-  { href: '#couple', label: 'Couple' },
-  { href: '#events', label: 'When & Where' },
+  { href: '#venue', label: 'Venue' },
+  { href: '#schedule', label: 'The Day' },
+  { href: '#dress-code', label: 'Dress Code' },
+  { href: '#stay', label: 'Where to Stay' },
   { href: '#rsvp', label: 'RSVP' },
-  { href: '#travel', label: 'Travel' },
 ]
 
 // Every guest shares one account, so only end this browser's session.
@@ -29,10 +29,10 @@ export default function Navbar() {
   const close = () => setOpen(false)
 
   return (
-    // Out of sight while the invitation card fills the screen, it slides down once the guest scrolls
-    // (or tabs into it).
+    // Out of sight while the top of the invitation fills the screen, it slides down once the guest
+    // scrolls (or tabs into it).
     <header
-      className={`fixed inset-x-0 top-0 z-40 bg-warm-ivory/95 text-taupe-dark backdrop-blur transition-transform duration-300 focus-within:translate-y-0 ${
+      className={`fixed inset-x-0 top-0 z-40 bg-paper/95 font-serif text-cocoa backdrop-blur transition-transform duration-300 focus-within:translate-y-0 ${
         scrolled || open ? 'shadow-sm' : '-translate-y-full'
       }`}
     >
@@ -41,16 +41,16 @@ export default function Navbar() {
           {wedding.coupleNames}
         </a>
 
-        <div className="hidden items-center gap-8 text-sm tracking-wide md:flex">
+        <div className="hidden items-center gap-8 text-xs font-medium tracking-[0.16em] uppercase md:flex">
           {LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="transition-colors hover:text-taupe">
+            <a key={link.href} href={link.href} className="transition-colors hover:text-gold">
               {link.label}
             </a>
           ))}
           <button
             type="button"
             onClick={signOut}
-            className="rounded-full border border-dusty-rose px-4 py-1.5 text-xs uppercase tracking-widest transition-colors hover:bg-antique-ivory"
+            className="rounded-md border border-cocoa/60 px-4 py-1.5 tracking-[0.14em] transition-colors hover:bg-cocoa/5"
           >
             Log out
           </button>
@@ -69,11 +69,11 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-dusty-blush bg-warm-ivory px-4 pb-6 md:hidden">
+        <div id="mobile-menu" className="border-t border-gold/30 bg-paper px-4 pb-6 md:hidden">
           <ul>
             {LINKS.map((link) => (
-              <li key={link.href} className="border-b border-dusty-blush">
-                <a href={link.href} onClick={close} className="block py-3 text-sm tracking-wide">
+              <li key={link.href} className="border-b border-gold/30">
+                <a href={link.href} onClick={close} className="block py-3 text-xs font-medium tracking-[0.16em] uppercase">
                   {link.label}
                 </a>
               </li>
@@ -82,7 +82,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={signOut}
-            className="mt-5 w-full rounded-full border border-dusty-rose py-2.5 text-xs uppercase tracking-widest"
+            className="mt-5 w-full rounded-md border border-cocoa/60 py-2.5 text-xs tracking-[0.14em] uppercase"
           >
             Log out
           </button>

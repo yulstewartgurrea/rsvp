@@ -8,20 +8,25 @@
   --font-signature: "Herr Von Muellerhoff", cursive;
 
   /* Wedding palette */
-  --color-warm-ivory: #f3eee7; /* main background */
-  --color-antique-ivory: #e9e0d5; /* invitation paper */
+  --color-warm-ivory: #f3eee7; /* main background, and the invitation card */
+  --color-antique-ivory: #e9e0d5; /* event cards and hover fills */
   --color-blush-pink: #d9c1b9; /* envelopes and floral accents */
-  --color-dusty-rose: #be9a91; /* ribbons and rose details */
+  --color-dusty-rose: #be9a91; /* ribbons, rose details and the invitation's frame */
   --color-champagne: #d3c3b0; /* elegant neutral accents */
   --color-sage: #929785; /* leaves and botanical details */
   --color-taupe: #6b5c50; /* typography and dark contrast */
   --color-dusty-blush: #d9cccb; /* dividers and quiet borders */
-  --color-soft-champagne-pink: #e7d9d2; /* blush paper: alternate sections and the RSVP card */
+  --color-soft-champagne-pink: #e7d9d2; /* blush paper: alternate sections */
   --color-muted-rose: #d9c7c4; /* the wax seal, and accents that echo it */
   --color-mauve-blush: #d6c6c5; /* field and card borders */
 
   /* A deeper taupe for body text and for text on blush pink, where warm taupe is too light to read */
   --color-taupe-dark: #4a3f37;
+
+  /* The invitation page: its paper, its lettering and its gold ornaments, from the poster design */
+  --color-paper: #fdf3eb;
+  --color-cocoa: #5c2b14;
+  --color-gold: #a9824f;
 }
 
 /* Used by the Unseal animation after a guest enters the key. */

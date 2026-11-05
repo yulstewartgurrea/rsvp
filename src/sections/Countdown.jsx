@@ -1,32 +1,30 @@
-import Ornament from '../components/Ornament'
+import { Part } from '../components/PosterParts'
 import { wedding } from '../content/wedding'
 import { useCountdown } from '../hooks/useCountdown'
 
-function Ring({ value, label }) {
+function Unit({ value, label }) {
   return (
-    <div className="relative flex size-24 flex-col items-center justify-center rounded-full border border-dusty-rose sm:size-36">
-      <div className="pointer-events-none absolute inset-1.5 rounded-full border border-muted-rose" />
-      <Ornament className="absolute -top-3 left-1/2 h-6 w-16 -translate-x-1/2 bg-warm-ivory px-1 sm:w-20" />
-      <span className="text-2xl font-light text-taupe tabular-nums sm:text-4xl">{String(value).padStart(2, '0')}</span>
-      <span className="mt-1 text-[0.65rem] uppercase tracking-[0.2em] text-taupe sm:text-xs">{label}</span>
-    </div>
+    <li className="flex h-[max(3.5rem,10.4cqw)] w-[max(3.9rem,12.2cqw)] flex-col items-center justify-center rounded-[0.6rem] border border-gold/45">
+      <span className="text-[max(1.3rem,4.6cqw)] leading-none tabular-nums lining-nums">{value}</span>
+      <span className="mt-[0.8cqw] text-[max(0.55rem,1.5cqw)] font-medium tracking-[0.12em] uppercase">{label}</span>
+    </li>
   )
 }
 
-export default function Countdown() {
-  const { done, days, hours, minutes } = useCountdown(wedding.date)
-
+export default function Countdown({ id }) {
+  const { done, days, hours, minutes, seconds } = useCountdown(wedding.date)
   return (
-    <section aria-label="Countdown to the wedding" className="bg-warm-ivory px-4 py-16 sm:py-20">
+    <Part id={id} title="Countdown" className="pt-[1cqw]">
       {done ? (
-        <p className="text-center font-script text-5xl text-taupe">Just married!</p>
+        <p className="text-center font-signature text-[max(2rem,7cqw)]">Just married!</p>
       ) : (
-        <div className="flex justify-center gap-4 sm:gap-10">
-          <Ring value={days} label="Days" />
-          <Ring value={hours} label="Hours" />
-          <Ring value={minutes} label="Minutes" />
-        </div>
+        <ul className="flex justify-center gap-[max(0.6rem,2.9cqw)]">
+          <Unit value={days} label="Days" />
+          <Unit value={hours} label="Hours" />
+          <Unit value={minutes} label="Minutes" />
+          <Unit value={seconds} label="Seconds" />
+        </ul>
       )}
-    </section>
+    </Part>
   )
 }
