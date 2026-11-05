@@ -4,21 +4,28 @@ import { wedding } from '../content/wedding'
 
 const ICONS = { rings: RingsIcon, toast: ToastIcon, dinner: DinnerIcon, music: MusicIcon }
 
-// The day in order, its parts evenly spaced along a fine line that runs between their icons.
+// The day in order, down a fine gold line: each part's icon in a soft round badge, with a small
+// gold bead on the line between one badge and the next, and its time and name beside it.
 export default function Schedule({ id }) {
   return (
-    <Part id={id} title="The Day">
-      <ol className="mx-auto grid w-[86cqw] max-w-full grid-cols-4">
+    <Part id={id} title="The Day" large className="pt-[max(2rem,8cqw)]">
+      <ol className="mx-auto flex w-fit flex-col pr-[4cqw]">
         {wedding.schedule.map(({ id: key, time, title, icon }, i) => {
           const Icon = ICONS[icon]
           return (
-            <li key={key} className="relative flex flex-col items-center text-center">
+            <li key={key} className={`relative flex items-center gap-[5cqw] ${i > 0 ? 'pt-[max(1.6rem,6.5cqw)]' : ''}`}>
               {i > 0 && (
-                <span aria-hidden="true" className="absolute top-[max(0.8rem,3.2cqw)] right-[calc(50%+max(1.3rem,5cqw))] left-[calc(-50%+max(1.3rem,5cqw))] h-px bg-gold/50" />
+                <span aria-hidden="true" className="absolute top-0 left-[max(1.875rem,7.75cqw)] h-[max(1.6rem,6.5cqw)] w-px -translate-x-1/2 bg-gold/55">
+                  <span className="absolute top-1/2 left-1/2 size-[max(0.35rem,1.4cqw)] -translate-1/2 rounded-full bg-gold/80" />
+                </span>
               )}
-              <Icon className="size-[max(1.6rem,6.4cqw)] text-cocoa" />
-              <span className="mt-[max(0.6rem,2.5cqw)] text-[max(0.72rem,2.2cqw)] leading-none tracking-[0.06em] lining-nums">{time}</span>
-              <span className="mt-[1cqw] text-[max(0.56rem,1.75cqw)] font-medium tracking-[0.1em] uppercase">{title}</span>
+              <span className="flex size-[max(3.75rem,15.5cqw)] shrink-0 items-center justify-center rounded-full border border-[#e6d3c3] bg-[#f3e8de]">
+                <Icon className="size-[62%] text-cocoa" strokeWidth={1.05} />
+              </span>
+              <div className="text-left">
+                <p className="text-[max(1.1rem,4.9cqw)] leading-none font-semibold tracking-[0.04em] lining-nums">{time}</p>
+                <p className="mt-[max(0.35rem,1.5cqw)] text-[max(0.72rem,3.1cqw)] leading-none font-medium tracking-[0.26em] uppercase">{title}</p>
+              </div>
             </li>
           )
         })}

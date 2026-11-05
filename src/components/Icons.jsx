@@ -1,10 +1,10 @@
-function Icon({ className = 'size-5', children }) {
+function Icon({ className = 'size-5', strokeWidth = 1.6, children }) {
   return (
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.6"
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
@@ -93,13 +93,14 @@ export function ExternalIcon(props) {
   )
 }
 
-// For the day's schedule: wedding rings, a toast, dinner and music.
+// For the day's schedule: wedding rings with a diamond, a toast, dinner and music.
 export function RingsIcon(props) {
   return (
     <Icon {...props}>
-      <circle cx="9" cy="14.5" r="5.5" />
-      <circle cx="15" cy="14.5" r="5.5" />
-      <path d="M7.4 7.6 9 5.6l1.6 2L9 9.1z" />
+      <circle cx="9" cy="16" r="5.2" />
+      <circle cx="15" cy="16" r="5.2" />
+      <path d="M7 7.9 8.1 6.6h3.8L13 7.9 10 11.2zM7 7.9h6M9.3 6.6l-.5 1.3L10 11.2l1.2-3.3-.5-1.3" />
+      <path d="M10 2.6v1.6M7 3.4l.9 1.2M13 3.4l-.9 1.2" />
     </Icon>
   )
 }
@@ -107,15 +108,15 @@ export function RingsIcon(props) {
 export function ToastIcon(props) {
   return (
     <Icon {...props}>
-      <g transform="rotate(-16 8 12)">
-        <path d="M5.6 4h4.8l-.5 6.2a1.9 1.9 0 0 1-3.8 0z" />
-        <path d="M8 12.1V20M5.8 20h4.4" />
+      <g transform="rotate(-18 9 21)">
+        <path d="M6.4 3.5h4.2l-.4 7a1.7 1.7 0 0 1-3.4 0zM6.6 7.5h3.8" />
+        <path d="M8.5 12.3v8.2M6.4 20.5h4.2" />
       </g>
-      <g transform="rotate(16 16 12)">
-        <path d="M13.6 4h4.8l-.5 6.2a1.9 1.9 0 0 1-3.8 0z" />
-        <path d="M16 12.1V20M13.8 20h4.4" />
+      <g transform="rotate(18 15 21)">
+        <path d="M13.4 3.5h4.2l-.4 7a1.7 1.7 0 0 1-3.4 0zM13.6 7.5h3.8" />
+        <path d="M15.5 12.3v8.2M13.4 20.5h4.2" />
       </g>
-      <path d="M12 1.2v1.6M10 2l.8 1M14 2l-.8 1" />
+      <path d="M12 .8v1.6M9.6 1.4l.8 1.1M14.4 1.4l-.8 1.1" />
     </Icon>
   )
 }
@@ -123,12 +124,10 @@ export function ToastIcon(props) {
 export function DinnerIcon(props) {
   return (
     <Icon {...props}>
-      <g transform="rotate(38 12 12)">
-        <path d="M10 2v5a2 2 0 0 0 4 0V2M12 2v5M12 9v13" />
-      </g>
-      <g transform="rotate(-38 12 12)">
-        <path d="M12 2c2.2 1.6 2.8 5.4 2.2 9H12zM12 11v11" />
-      </g>
+      <circle cx="12" cy="12" r="5.6" />
+      <circle cx="12" cy="12" r="3.9" />
+      <path d="M2.2 4v3.6a1.4 1.4 0 0 0 2.8 0V4M3.6 4v4M3.6 9V20" />
+      <path d="M20.8 4c1.4 1.5 1.6 4.8 1 7.6h-1zM20.8 11.6V20" />
     </Icon>
   )
 }
@@ -136,9 +135,9 @@ export function DinnerIcon(props) {
 export function MusicIcon(props) {
   return (
     <Icon {...props}>
-      <path d="M9 18V5.5L20 3v12.5M9 9.5 20 7" />
-      <circle cx="6.5" cy="18" r="2.5" />
-      <circle cx="17.5" cy="15.5" r="2.5" />
+      <path d="M8.5 18V6.2L19.5 3.6v12M8.5 9.6l11-2.6" />
+      <circle cx="6.2" cy="18" r="2.4" fill="currentColor" />
+      <circle cx="17.2" cy="15.6" r="2.4" fill="currentColor" />
     </Icon>
   )
 }

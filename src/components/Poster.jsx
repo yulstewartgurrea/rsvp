@@ -24,9 +24,7 @@ export default function Poster({ preview = false, wordsRef, restRef, wordsHidden
       <Hero id={id('home')} wordsRef={wordsRef} wordsStyle={hidden} />
       <div ref={restRef} style={hidden}>
         <Countdown id={id('countdown')} />
-        <Divider />
         <Venue id={id('venue')} />
-        <Divider />
         <Schedule id={id('schedule')} />
         <Divider />
         <DressCode id={id('dress-code')} />

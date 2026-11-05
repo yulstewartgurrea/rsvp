@@ -9,15 +9,21 @@ export const CAPS = 'text-[max(0.7rem,2.2cqw)] font-medium tracking-[0.16em] upp
 export const LARGE_CAPS = 'text-[max(0.8rem,2.5cqw)] font-medium tracking-[0.16em] uppercase lining-nums'
 export const ITALIC = 'text-[max(0.85rem,2.35cqw)] italic leading-snug'
 
+// The headings: small, or `large` for a part with a design of its own (The Day).
+const HEADING = {
+  small: 'gap-[3cqw] text-[max(0.8rem,2.6cqw)] tracking-[0.32em] [--pull:0.32em] [--line:7cqw]',
+  large: 'gap-[3.5cqw] text-[max(1rem,4.6cqw)] leading-none tracking-[0.22em] [--pull:0.22em] [--line:9cqw]',
+}
+
 // A part of the page under its heading, which has a fine line either side.
-export function Part({ id, title, className = '', children }) {
+export function Part({ id, title, large = false, className = '', children }) {
   return (
     <section id={id} className={`scroll-mt-16 px-[8cqw] sm:scroll-mt-20 ${className}`}>
-      <h2 className="flex items-center justify-center gap-[3cqw] text-[max(0.8rem,2.6cqw)] font-medium tracking-[0.32em] uppercase">
-        <span aria-hidden="true" className="h-px w-[7cqw] bg-gold/60" />
+      <h2 className={`flex items-center justify-center font-medium uppercase ${HEADING[large ? 'large' : 'small']}`}>
+        <span aria-hidden="true" className="h-px w-(--line) bg-gold/60" />
         {/* The letter spacing also follows the last letter; pulled back so the word sits centred. */}
-        <span className="-mr-[0.32em]">{title}</span>
-        <span aria-hidden="true" className="h-px w-[7cqw] bg-gold/60" />
+        <span className="-mr-(--pull)">{title}</span>
+        <span aria-hidden="true" className="h-px w-(--line) bg-gold/60" />
       </h2>
       <div className="mt-[max(1.5rem,6cqw)]">{children}</div>
     </section>

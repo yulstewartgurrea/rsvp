@@ -23,8 +23,9 @@
   /* A deeper taupe for body text and for text on blush pink, where warm taupe is too light to read */
   --color-taupe-dark: #4a3f37;
 
-  /* The invitation page: its paper, its lettering and its gold ornaments, from the poster design */
-  --color-paper: #fdf3eb;
+  /* The invitation page: its paper (a lighter warm ivory), and its lettering and gold ornaments from
+     the poster design */
+  --color-paper: #faf7f2;
   --color-cocoa: #5c2b14;
   --color-gold: #a9824f;
 }

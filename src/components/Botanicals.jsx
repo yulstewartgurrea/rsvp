@@ -80,6 +80,10 @@ const BUNCH = [
 ].map(([from, to, bend, bud]) => spray(from, to, bend, bud))
 const TRAIL = [feathery([88, 22], [157, 17.5], -1, 9)]
 
+// Under the venue's heading: a feathery sprig reaching out either side of a small diamond (the right
+// one, mirrored for the left).
+const BRANCH = [feathery([88, 10], [154, 8.5], -0.8, 7)]
+
 // Drawn in gold: fine stems and cream buds.
 function Botanical({ parts, width = 0.5 }) {
   return parts.map(({ path, paths = [path], buds = [] }, i) => (
@@ -119,6 +123,18 @@ export function Flourish({ flipped }) {
   return (
     <svg viewBox="0 0 60 12" fill="none" className={`h-[0.3em] w-[1.55em] ${flipped ? '-scale-x-100' : ''}`} aria-hidden="true">
       <path d="M1 9.5C18 10.5 38 10.5 52 7.5 55 6.8 57.5 5.5 59 4" className="stroke-cocoa/80" strokeWidth="0.6" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+export function BranchDivider({ className }) {
+  return (
+    <svg viewBox="0 0 160 20" fill="none" className={className} aria-hidden="true">
+      <Botanical parts={BRANCH} />
+      <g transform="translate(160 0) scale(-1 1)">
+        <Botanical parts={BRANCH} />
+      </g>
+      <rect x="77.7" y="7.7" width="4.6" height="4.6" transform="rotate(45 80 10)" className="stroke-gold" strokeWidth="0.7" />
     </svg>
   )
 }

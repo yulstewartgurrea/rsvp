@@ -26,6 +26,7 @@ export const wedding = {
   // Shown on the invitation and under Venue / Location, with a link to the map.
   venue: {
     name: 'The Conservatory',
+    tagline: 'Where the celebration unfolds',
     location: 'Dahilayan, Manolo Fortich, Bukidnon',
     mapUrl: 'https://maps.google.com/?q=The+Conservatory+Dahilayan+Manolo+Fortich+Bukidnon',
   },
@@ -40,13 +41,15 @@ export const wedding = {
   ],
 
   dressCode: {
-    title: 'Formal attire',
-    note: 'We kindly ask our guests to wear formal attire in our wedding colors.',
+    title: 'Formal Attire',
+    note: 'We would love for you to dress in your finest as we celebrate our special day.',
+    men: { title: 'For men', note: 'Suit, polo, or a long-sleeve shirt' },
+    women: { title: 'For women', note: 'Long or midi formal dress' },
     colors: [
-      { name: 'Ivory', hex: '#fbf1e7' },
-      { name: 'Champagne', hex: '#b79674' },
-      { name: 'Burgundy', hex: '#68231e' },
-      { name: 'Mauve', hex: '#b58380' },
+      { name: 'Blush Pink', hex: '#F7C6C7' },
+      { name: 'Dusty Rose', hex: '#C58A8A' },
+      { name: 'Cream', hex: '#F5F0E6' },
+      { name: 'Soft Beige', hex: '#D9C9B6' },
     ],
   },
 

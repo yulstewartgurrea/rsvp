@@ -4,6 +4,8 @@ import { supabase } from '../lib/supabase'
 import { CloseIcon, MenuIcon } from './Icons'
 
 const LINKS = [
+  { href: '#home', label: 'Home' },
+  { href: '#countdown', label: 'Countdown' },
   { href: '#venue', label: 'Venue' },
   { href: '#schedule', label: 'The Day' },
   { href: '#dress-code', label: 'Dress Code' },
@@ -41,7 +43,7 @@ export default function Navbar() {
           {wedding.coupleNames}
         </a>
 
-        <div className="hidden items-center gap-8 text-xs font-medium tracking-[0.16em] uppercase md:flex">
+        <div className="hidden items-center gap-8 text-xs font-medium tracking-[0.16em] whitespace-nowrap uppercase lg:flex">
           {LINKS.map((link) => (
             <a key={link.href} href={link.href} className="transition-colors hover:text-gold">
               {link.label}
@@ -62,14 +64,14 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? 'Close menu' : 'Open menu'}
-          className="-mr-2 p-2 md:hidden"
+          className="-mr-2 p-2 lg:hidden"
         >
           {open ? <CloseIcon className="size-6" /> : <MenuIcon className="size-6" />}
         </button>
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-gold/30 bg-paper px-4 pb-6 md:hidden">
+        <div id="mobile-menu" className="border-t border-gold/30 bg-paper px-4 pb-6 lg:hidden">
           <ul>
             {LINKS.map((link) => (
               <li key={link.href} className="border-b border-gold/30">
