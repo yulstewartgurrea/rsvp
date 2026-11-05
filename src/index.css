@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  /* The handwritten lines on the invitation card */
+  --font-signature: "Herr Von Muellerhoff", cursive;
+
+  /* Wedding palette */
+  --color-warm-ivory: #f3eee7; /* main background */
+  --color-antique-ivory: #e9e0d5; /* invitation paper */
+  --color-blush-pink: #d9c1b9; /* envelopes and floral accents */
+  --color-dusty-rose: #be9a91; /* ribbons and rose details */
+  --color-champagne: #d3c3b0; /* elegant neutral accents */
+  --color-sage: #929785; /* leaves and botanical details */
+  --color-taupe: #6b5c50; /* typography and dark contrast */
+  --color-dusty-blush: #d9cccb; /* dividers and quiet borders */
+  --color-soft-champagne-pink: #e7d9d2; /* blush paper: alternate sections and the RSVP card */
+  --color-muted-rose: #d9c7c4; /* the wax seal, and accents that echo it */
+  --color-mauve-blush: #d6c6c5; /* field and card borders */
+
+  /* A deeper taupe for body text and for text on blush pink, where warm taupe is too light to read */
+  --color-taupe-dark: #4a3f37;
+}
+
+/* Used by the Unseal animation after a guest enters the key. */
+@keyframes unseal-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keeps room for a scrollbar on every page, so the envelope and the invitation card it opens
+       into sit in exactly the same place. */
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    @apply bg-warm-ivory font-sans text-taupe-dark antialiased;
+  }
+}
