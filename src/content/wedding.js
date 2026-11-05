@@ -58,7 +58,11 @@ export const wedding = {
   },
 
   rsvp: {
-    deadline: 'April 16, 2027',
+    deadline: 'February 1, 2027',
+    // From this moment (in the venue's time) the form takes no more replies, and says RSVPs have
+    // closed. The database refuses them from the same moment (supabase/close-rsvps.sql), so change
+    // both together.
+    closesAt: '2027-02-01T00:00:00+08:00',
   },
 
   thankYou: 'We can’t wait to celebrate with you!',

@@ -17,9 +17,11 @@ alter table public.rsvps enable row level security;
 
 grant insert on table public.rsvps to authenticated;
 
--- Only the logged-in shared guest account can submit RSVPs.
-create policy "Logged-in guests can submit RSVPs"
-  on public.rsvps for insert to authenticated with check (true);
+-- Only the logged-in shared guest account can submit RSVPs, and only until the deadline (keep it the
+-- same as rsvp.closesAt in src/content/wedding.js).
+create policy "Logged-in guests can submit RSVPs until the deadline"
+  on public.rsvps for insert to authenticated
+  with check (now() < timestamptz '2027-02-01 00:00:00+08');
 
 -- No select policy: guests can't read each other's RSVPs.
 -- View responses in Supabase → Table Editor → rsvps (export to CSV from there).

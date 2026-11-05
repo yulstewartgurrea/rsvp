@@ -5,7 +5,10 @@ import { supabase } from '../lib/supabase'
 import { Garland } from './Botanicals'
 import { CloseIcon, PlusIcon } from './Icons'
 
-const { deadline } = wedding.rsvp
+const { deadline, closesAt } = wedding.rsvp
+const [first, second] = wedding.partners.map((partner) => partner.name)
+const CLOSES_AT = new Date(closesAt).getTime()
+const isClosed = () => Date.now() >= CLOSES_AT
 
 const emptyForm = () => ({
   name: '',
@@ -35,6 +38,20 @@ function Choice({ name, value, checked, onChange, children, type = 'radio', requ
   )
 }
 
+function Closed() {
+  return (
+    <div role="alert" className="py-4 text-center">
+      <Garland className="mx-auto h-auto w-40" />
+      <h2 id="rsvp-title" className="mt-4 text-xl font-medium tracking-[0.2em] uppercase">
+        RSVP is now closed
+      </h2>
+      <p className="mx-auto mt-3 max-w-sm text-lg text-balance italic">
+        Replies closed on {deadline}. If you still need to reach us, please contact {first} or {second} directly.
+      </p>
+    </div>
+  )
+}
+
 function ThankYou({ name, attending, onReset }) {
   return (
     <div className="py-4 text-center" role="status">
@@ -52,7 +69,7 @@ function ThankYou({ name, attending, onReset }) {
 
 export default function RsvpDialog({ ref }) {
   const [form, setForm] = useState(emptyForm)
-  const [status, setStatus] = useState('idle')
+  const [status, setStatus] = useState(() => (isClosed() ? 'closed' : 'idle'))
   const [error, setError] = useState('')
 
   const attending = form.attending === 'yes'
@@ -61,6 +78,11 @@ export default function RsvpDialog({ ref }) {
 
   async function handleSubmit(event) {
     event.preventDefault()
+    // In case the deadline passed while the form was open.
+    if (isClosed()) {
+      setStatus('closed')
+      return
+    }
     setStatus('sending')
     setError('')
     const guests = form.guests.map((guest) => guest.trim()).filter(Boolean)
@@ -75,6 +97,12 @@ export default function RsvpDialog({ ref }) {
       message: form.message.trim() || null,
     })
 
+    // The database refuses replies after the deadline by its own clock, which wins if this device's
+    // clock is off. 42501 is that refusal; within a day of the deadline it's taken to mean closed.
+    if (error?.code === '42501' && Date.now() >= CLOSES_AT - 24 * 60 * 60 * 1000) {
+      setStatus('closed')
+      return
+    }
     if (error) {
       console.error('RSVP insert failed', error)
       setError("We couldn't send your RSVP. Please try again in a moment.")
@@ -104,7 +132,9 @@ export default function RsvpDialog({ ref }) {
           </button>
         </form>
 
-        {status === 'sent' ? (
+        {status === 'closed' ? (
+          <Closed />
+        ) : status === 'sent' ? (
           <ThankYou name={form.name} attending={attending} onReset={reset} />
         ) : (
           <>
