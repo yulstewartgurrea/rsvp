@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { startMusic, stopMusic } from '../lib/music'
 import { supabase } from '../lib/supabase'
 import { AuthContext } from './AuthContext'
 
@@ -11,6 +12,9 @@ export default function AuthProvider({ children }) {
     const { data } = supabase.auth.onAuthStateChange((_event, nextSession) => {
       setSession(nextSession)
       setLoading(false)
+      // The song plays for as long as the guest is logged in, and stops when they log out.
+      if (nextSession) startMusic()
+      else stopMusic()
     })
     return () => data.subscription.unsubscribe()
   }, [])

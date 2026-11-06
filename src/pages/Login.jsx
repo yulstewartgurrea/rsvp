@@ -5,6 +5,7 @@ import { Backdrop, CARD, Envelope, ENVELOPE_BOX } from '../components/Envelope'
 import { ArrowRightIcon, EyeIcon, EyeOffIcon, LockIcon } from '../components/Icons'
 import PageLoader from '../components/PageLoader'
 import { wedding } from '../content/wedding'
+import { primeMusic, stopMusic } from '../lib/music'
 import { supabase } from '../lib/supabase'
 
 const copy = wedding.login
@@ -33,6 +34,8 @@ export default function Login({ onUnlock }) {
 
   async function handleSubmit(event) {
     event.preventDefault()
+    // Before waiting on the login, while the browser still counts this as the guest's own tap.
+    primeMusic()
     setSubmitting(true)
     setError('')
     const { error } = await supabase.auth.signInWithPassword({
@@ -40,6 +43,7 @@ export default function Login({ onUnlock }) {
       password,
     })
     if (error) {
+      stopMusic()
       setError(loginErrorMessage(error))
       setSubmitting(false)
       return
