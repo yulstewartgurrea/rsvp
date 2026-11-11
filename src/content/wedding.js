@@ -58,7 +58,6 @@ export const wedding = {
     },
     guests: {
       title: 'For Guests',
-      who: 'Non-sponsors / regular attendees',
       men: { title: 'For men', note: 'Grey suit, polo, or a long-sleeve shirt' },
       women: { title: 'For women', note: 'Long or midi formal dress' },
       note: 'Guests may wear any of the wedding palette colors below.',

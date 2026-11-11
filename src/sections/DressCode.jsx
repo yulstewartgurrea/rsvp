@@ -12,19 +12,14 @@ const SWATCH_EDGE = 'shadow-[inset_0_0_0_1px_rgb(92_43_20/0.06),0_1px_3px_rgb(92
 const Line = () => <span aria-hidden="true" className="h-px flex-1 bg-gold/45" />
 
 // Who a group of looks is for, in a soft pill (as the badges on The Day) with a line out to either
-// side, and `who` in small capitals under the title.
-function GroupTitle({ title, who }) {
+// side.
+function GroupTitle({ title }) {
   return (
     <div className="-mx-[5cqw] flex items-center">
       <Line />
-      <h3 className="flex flex-col items-center rounded-full border border-[#e6d3c3] bg-[#f3e8de] px-[6cqw] py-[max(0.5rem,2cqw)]">
-        {/* The letter spacing also follows the last letter; matched on the left so the words sit centred. */}
-        <span className="pl-[0.2em] text-[max(0.95rem,3.8cqw)] leading-none font-medium tracking-[0.2em] whitespace-nowrap uppercase">{title}</span>
-        {who && (
-          <span className="mt-[max(0.3rem,1.2cqw)] pl-[0.18em] text-[max(0.55rem,1.75cqw)] leading-none tracking-[0.18em] whitespace-nowrap uppercase">
-            ({who})
-          </span>
-        )}
+      {/* The letter spacing also follows the last letter; matched on the left so the words sit centred. */}
+      <h3 className="rounded-full border border-[#e6d3c3] bg-[#f3e8de] py-[max(0.5rem,2cqw)] pr-[6cqw] pl-[calc(6cqw+0.2em)] text-[max(0.95rem,3.8cqw)] leading-none font-medium tracking-[0.2em] whitespace-nowrap uppercase">
+        {title}
       </h3>
       <Line />
     </div>
@@ -104,7 +99,7 @@ export default function DressCode({ id }) {
       <BranchDivider className="mx-auto mt-[max(1.25rem,5cqw)] h-auto w-[34cqw]" />
 
       <div className="mt-[max(1rem,4cqw)]">
-        <GroupTitle title={guests.title} who={guests.who} />
+        <GroupTitle title={guests.title} />
         <Looks
           men={<Look look={guests.men} image="guest-men" width={32} height={18.3} alt="A grey suit, a long-sleeve shirt and a polo" />}
           women={<Look look={guests.women} image="guest-women" width={25} height={18.3} alt="A long formal dress" />}
