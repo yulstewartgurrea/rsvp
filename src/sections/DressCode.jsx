@@ -106,7 +106,7 @@ export default function DressCode({ id }) {
       <div className="mt-[max(1rem,4cqw)]">
         <GroupTitle title={guests.title} who={guests.who} />
         <Looks
-          men={<Look look={guests.men} image="guest-men" width={44} height={18.3} alt="A black suit, a grey suit, a long-sleeve shirt and a polo" />}
+          men={<Look look={guests.men} image="guest-men" width={32} height={18.3} alt="A grey suit, a long-sleeve shirt and a polo" />}
           women={<Look look={guests.women} image="guest-women" width={25} height={18.3} alt="A long formal dress" />}
         />
         <Note className="mt-[max(1rem,4cqw)] text-[max(0.8rem,2.9cqw)] leading-snug italic">{guests.note}</Note>

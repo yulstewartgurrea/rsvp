@@ -59,15 +59,15 @@ export const wedding = {
     guests: {
       title: 'For Guests',
       who: 'Non-sponsors / regular attendees',
-      men: { title: 'For men', note: 'Black or grey suit, polo, or a long-sleeve shirt' },
+      men: { title: 'For men', note: 'Grey suit, polo, or a long-sleeve shirt' },
       women: { title: 'For women', note: 'Long or midi formal dress' },
       note: 'Guests may wear any of the wedding palette colors below.',
     },
     // The wedding palette: only the colours show; the names are read out by screen readers.
     colors: [
-      { name: 'Blush Pink', hex: '#F7C6C7' },
+      { name: 'Blush Pink', hex: '#E1C1B6' },
       { name: 'Dusty Rose', hex: '#C58A8A' },
-      { name: 'Cream', hex: '#F5F0E6' },
+      { name: 'Cream', hex: '#E8DAC7' },
       { name: 'Soft Beige', hex: '#D9C9B6' },
     ],
     colorsNote: 'Guests may choose any of these colors.',
