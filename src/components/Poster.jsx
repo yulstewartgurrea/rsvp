@@ -4,6 +4,7 @@
 import Countdown from '../sections/Countdown'
 import DressCode from '../sections/DressCode'
 import Hero from '../sections/Hero'
+import PlusOne from '../sections/PlusOne'
 import Rsvp from '../sections/Rsvp'
 import Schedule from '../sections/Schedule'
 import Stay from '../sections/Stay'
@@ -30,6 +31,8 @@ export default function Poster({ preview = false, wordsRef, restRef, wordsHidden
         <DressCode id={id('dress-code')} />
         <Divider />
         <Stay id={id('stay')} />
+        <Divider />
+        <PlusOne id={id('plus-one')} />
         <Divider />
         <Rsvp id={id('rsvp')} onRsvp={onRsvp} />
         <Divider />

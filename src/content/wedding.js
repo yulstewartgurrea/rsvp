@@ -43,14 +43,34 @@ export const wedding = {
   dressCode: {
     title: 'Formal Attire',
     note: 'We would love for you to dress in your finest as we celebrate our special day.',
-    men: { title: 'For men', note: 'Suit, polo, or a long-sleeve shirt' },
-    women: { title: 'For women', note: 'Long or midi formal dress' },
+    sponsors: {
+      title: 'Principal Sponsors',
+      men: { title: 'For men', note: 'Black suit' },
+      // Shown under the dresses as swatches; the names are read out by screen readers.
+      women: {
+        title: 'For women',
+        note: 'Long formal dress in these colors',
+        colors: [
+          { name: 'Dusty Rose', hex: '#C58A8A' },
+          { name: 'Burgundy', hex: '#81353A' },
+        ],
+      },
+    },
+    guests: {
+      title: 'For Guests',
+      who: 'Non-sponsors / regular attendees',
+      men: { title: 'For men', note: 'Black or grey suit, polo, or a long-sleeve shirt' },
+      women: { title: 'For women', note: 'Long or midi formal dress' },
+      note: 'Guests may wear any of the wedding palette colors below.',
+    },
+    // The wedding palette: only the colours show; the names are read out by screen readers.
     colors: [
       { name: 'Blush Pink', hex: '#F7C6C7' },
       { name: 'Dusty Rose', hex: '#C58A8A' },
       { name: 'Cream', hex: '#F5F0E6' },
       { name: 'Soft Beige', hex: '#D9C9B6' },
     ],
+    colorsNote: 'Guests may choose any of these colors.',
   },
 
   // `url` is where View options leads: for now, a map of places to stay near the venue.
@@ -58,6 +78,12 @@ export const wedding = {
     title: 'Recommended accommodations',
     note: 'A curated list of nearby stays for your convenience.',
     url: 'https://www.google.com/maps/search/hotels+near+Dahilayan,+Manolo+Fortich,+Bukidnon',
+  },
+
+  // Just before the RSVP. The ⁠ after the hyphen keeps "plus-ones" together on one line.
+  plusOne: {
+    title: 'Can I Bring a Plus One?',
+    note: 'Due to limited seating, we cannot accommodate additional guests or plus-⁠ones. We hope you understand and can’t wait to share our special day with you.',
   },
 
   rsvp: {

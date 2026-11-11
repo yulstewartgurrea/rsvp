@@ -84,6 +84,16 @@ const TRAIL = [feathery([88, 22], [157, 17.5], -1, 9)]
 // one, mirrored for the left).
 const BRANCH = [feathery([88, 10], [154, 8.5], -0.8, 7)]
 
+// Under the plus-one question: a small fan of baby's breath, its stems rising from one point and
+// arching outwards (each left one mirrors a right one).
+const FAN = [
+  [[24, 21], [24, 3], 0, 1.6],
+  [[24, 21], [13, 7], 2, 1.5],
+  [[24, 21], [35, 7], -2, 1.5],
+  [[24, 21], [3, 15.5], 3, 1.3],
+  [[24, 21], [45, 15.5], -3, 1.3],
+].map(([from, to, bend, bud]) => spray(from, to, bend, bud))
+
 // Drawn in gold: fine stems and cream buds.
 function Botanical({ parts, width = 0.5 }) {
   return parts.map(({ path, paths = [path], buds = [] }, i) => (
@@ -139,6 +149,14 @@ export function BranchDivider({ className }) {
   )
 }
 
+export function Fan({ className }) {
+  return (
+    <svg viewBox="0 0 48 24" fill="none" className={className} aria-hidden="true">
+      <Botanical parts={FAN} />
+    </svg>
+  )
+}
+
 // The small four-petalled ornament between the parts of the page.
 export function Ornament({ className }) {
   return (
@@ -147,6 +165,15 @@ export function Ornament({ className }) {
         <ellipse key={angle} cx="6" cy="3.2" rx="1.5" ry="2.3" transform={`rotate(${angle} 6 6)`} className="fill-gold/80" />
       ))}
       <circle cx="6" cy="6" r="1" className="fill-paper" />
+    </svg>
+  )
+}
+
+// A small four-pointed star, either side of the notes in the dress code.
+export function Sparkle({ className }) {
+  return (
+    <svg viewBox="0 0 12 12" className={className} aria-hidden="true">
+      <path d="M6 0C6.5 3.5 8.5 5.5 12 6 8.5 6.5 6.5 8.5 6 12 5.5 8.5 3.5 6.5 0 6 3.5 5.5 5.5 3.5 6 0Z" className="fill-gold/80" />
     </svg>
   )
 }

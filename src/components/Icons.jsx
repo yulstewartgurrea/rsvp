@@ -132,12 +132,37 @@ export function DinnerIcon(props) {
   )
 }
 
+// For the plus-one question: two guests, one with a plus, struck through.
+export function NoPlusOneIcon(props) {
+  return (
+    <Icon {...props}>
+      <circle cx="7.5" cy="7.5" r="3.2" />
+      <path d="M10 21.5H2V19a5.5 5.5 0 0 1 10-3.15" />
+      <circle cx="15.5" cy="10" r="3.2" />
+      <path d="M17.5 21.5H10V21a5.5 5.5 0 0 1 9.6-3.66M20.5 18.5v4M18.5 20.5h4" />
+      <path d="M21.5 2.5 3.5 22.5" />
+    </Icon>
+  )
+}
+
 export function MusicIcon(props) {
   return (
     <Icon {...props}>
       <path d="M8.5 18V6.2L19.5 3.6v12M8.5 9.6l11-2.6" />
       <circle cx="6.2" cy="18" r="2.4" fill="currentColor" />
       <circle cx="17.2" cy="15.6" r="2.4" fill="currentColor" />
+    </Icon>
+  )
+}
+
+// For the music button while the song is off: the same notes, struck through.
+export function MusicOffIcon(props) {
+  return (
+    <Icon {...props}>
+      <path d="M8.5 18V6.2L19.5 3.6v12M8.5 9.6l11-2.6" />
+      <circle cx="6.2" cy="18" r="2.4" fill="currentColor" />
+      <circle cx="17.2" cy="15.6" r="2.4" fill="currentColor" />
+      <path d="M2.5 2.5l19 19" />
     </Icon>
   )
 }

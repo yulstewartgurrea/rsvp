@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { BACKDROP, POSTER_COLUMN } from '../components/Envelope'
+import MusicToggle from '../components/MusicToggle'
 import Navbar from '../components/Navbar'
 import Poster from '../components/Poster'
 import RsvpDialog from '../components/RsvpDialog'
@@ -17,6 +18,7 @@ export default function Home() {
         </div>
       </main>
       <RsvpDialog ref={rsvp} />
+      <MusicToggle />
     </>
   )
 }
