@@ -72,11 +72,41 @@ export const wedding = {
     colorsNote: 'Guests may choose any of these colors.',
   },
 
-  // `url` is where View options leads: for now, a map of places to stay near the venue.
+  // A few places to stay near the venue, then a note for guests. Each place's drawing is
+  // public/images/stay/<id>.webp. `url` is where its button leads: for now, the place on Google Maps.
   stay: {
-    title: 'Recommended accommodations',
-    note: 'A curated list of nearby stays for your convenience.',
-    url: 'https://www.google.com/maps/search/hotels+near+Dahilayan,+Manolo+Fortich,+Bukidnon',
+    note: 'For your convenience, here are a few nearby accommodations in Dahilayan:',
+    places: [
+      {
+        id: 'pinegrove',
+        name: 'Pinegrove Mountain Lodge',
+        note: 'A cozy mountain lodge with rooms for couples, families, and groups.',
+        button: 'View rooms',
+        url: 'https://maps.google.com/?q=Pinegrove+Mountain+Lodge+Dahilayan+Manolo+Fortich+Bukidnon',
+      },
+      {
+        id: 'forest-park',
+        name: 'Dahilayan Forest Park Resort',
+        note: 'Relaxing mountain rooms, dining, and family activities.',
+        button: 'Book a stay',
+        url: 'https://maps.google.com/?q=Dahilayan+Forest+Park+Resort+Bukidnon',
+      },
+      {
+        id: 'alpine-village',
+        name: 'Dahilayan Alpine Village',
+        note: 'Swiss-inspired cabins in the cool Dahilayan mountains.',
+        button: 'Contact property',
+        url: 'https://maps.google.com/?q=Dahilayan+Alpine+Village+Manolo+Fortich+Bukidnon',
+      },
+    ],
+    guestNote: {
+      title: 'A little note for our guests',
+      intro: 'For those traveling to celebrate with us, we have shared a few nearby accommodation options for your convenience.',
+      // On a ribbon, with a bed beside it.
+      ask: 'We kindly ask our guests to arrange and cover their own accommodations.',
+      booking: 'When making your reservation, please let the front desk know that you are attending the Gurrea–Operia Wedding on May 16, 2027.',
+      thanks: 'We truly appreciate you making the journey to celebrate with us and look forward to sharing this special day with you!',
+    },
   },
 
   // Just before the RSVP. The ⁠ after the hyphen keeps "plus-ones" together on one line.

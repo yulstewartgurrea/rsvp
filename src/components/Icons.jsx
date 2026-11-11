@@ -145,6 +145,17 @@ export function NoPlusOneIcon(props) {
   )
 }
 
+// For the note under Where to Stay: a bed, its headboard behind the mattress, with the corners cut
+// off as in the user's design.
+export function BedIcon(props) {
+  return (
+    <Icon {...props}>
+      <path d="M5 10.9V7.6l1.1-1.1h11.8l1.1 1.1v3.3" />
+      <path d="M2.5 17.5v-5.4l1.2-1.2h16.6l1.2 1.2v5.4M2.5 15.2h19" />
+    </Icon>
+  )
+}
+
 export function MusicIcon(props) {
   return (
     <Icon {...props}>
