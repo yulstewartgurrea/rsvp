@@ -46,14 +46,11 @@ export const wedding = {
     sponsors: {
       title: 'Principal Sponsors',
       men: { title: 'For men', note: 'Black suit' },
-      // Shown under the dresses as swatches; the names are read out by screen readers.
+      // Shown under the dress as swatches; the names are read out by screen readers.
       women: {
         title: 'For women',
-        note: 'Long formal dress in these colors',
-        colors: [
-          { name: 'Dusty Rose', hex: '#C58A8A' },
-          { name: 'Burgundy', hex: '#81353A' },
-        ],
+        note: 'Long formal dress in this color',
+        colors: [{ name: 'Burgundy', hex: '#81353A' }],
       },
     },
     guests: {

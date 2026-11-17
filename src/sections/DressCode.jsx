@@ -82,9 +82,9 @@ export default function DressCode({ id }) {
         <Looks
           men={<Look look={sponsors.men} image="sponsor-men" width={32.5} height={30} alt="A black suit with a white shirt and a black tie" />}
           women={
-            <Look look={sponsors.women} image="sponsor-women" width={39} height={30} alt="Two long formal dresses, one dusty rose and one burgundy">
+            <Look look={sponsors.women} image="sponsor-women" width={30.5} height={30} alt="A long burgundy formal dress">
               {/* Only the colours show, as in the palette; their names are for screen readers. */}
-              <ul className="mt-[max(0.6rem,2.4cqw)] grid grid-cols-2 gap-x-[2.5cqw]">
+              <ul className="mt-[max(0.6rem,2.4cqw)] flex justify-center gap-x-[2.5cqw]">
                 {sponsors.women.colors.map(({ name, hex }) => (
                   <li key={name} className={`h-[max(1.4rem,4.4cqw)] w-[max(3.5rem,12cqw)] rounded-full ${SWATCH_EDGE}`} style={{ backgroundColor: hex }}>
                     <span className="sr-only">{name}</span>
