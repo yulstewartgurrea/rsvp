@@ -8,8 +8,8 @@ create table public.rsvps (
   attending boolean not null,
   -- Everyone coming: the person replying and the other guests they name.
   guest_count smallint not null default 1 check (guest_count >= 0),
-  -- The names of the people coming with the person replying, as many as they like.
-  other_guests text[] not null default '{}',
+  -- The names of the people coming with the person replying, as many as they like; null if none.
+  other_guests text[],
   message text check (char_length(message) <= 2000)
 );
 

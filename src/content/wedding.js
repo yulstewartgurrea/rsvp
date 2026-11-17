@@ -101,7 +101,7 @@ export const wedding = {
       intro: 'For those traveling to celebrate with us, we have shared a few nearby accommodation options for your convenience.',
       // On a ribbon, with a bed beside it.
       ask: 'We kindly ask our guests to arrange and cover their own accommodations.',
-      booking: 'When making your reservation, please let the front desk know that you are attending the Gurrea–Operia Wedding on May 16, 2027.',
+      booking: 'When making your reservation, please let the front desk know that you are attending the Gurrea–Operio Wedding on May 16, 2027.',
       thanks: 'We truly appreciate you making the journey to celebrate with us and look forward to sharing this special day with you!',
     },
   },

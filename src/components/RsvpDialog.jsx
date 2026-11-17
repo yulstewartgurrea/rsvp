@@ -93,7 +93,7 @@ export default function RsvpDialog({ ref }) {
       attending,
       // Everyone coming: the person replying and the guests they named.
       guest_count: attending ? 1 + guests.length : 0,
-      other_guests: attending ? guests : [],
+      other_guests: attending && guests.length ? guests : null,
       message: form.message.trim() || null,
     })
 
